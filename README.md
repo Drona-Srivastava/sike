@@ -14,12 +14,14 @@ installers; Linux may provide it as `python3-tk`). The runtime has no third-part
 dependencies and never sends data anywhere.
 
 ```bash
-python -m venv .venv
-. .venv/bin/activate
-pip install -r requirements.txt       # intentionally empty: stdlib runtime
-PYTHONPATH=src python -m ultimate_agent
-PYTHONPATH=src python -m ultimate_agent --debug
+./scripts/setup.sh
+./scripts/run.sh
+./scripts/run.sh --debug
 ```
+
+`setup.sh` creates or updates the local `.venv` and installs the project in
+editable mode. `run.sh` bootstraps that environment automatically if needed.
+Use `./scripts/test.sh` to run the test suite.
 
 Normal mode uses a three-second countdown and exits shortly after the final
 message. Debug mode uses nine seconds, logs transitions, and offers restart.
